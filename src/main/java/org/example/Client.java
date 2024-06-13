@@ -13,9 +13,13 @@ public class Client {
                     new InputStreamReader(System.in)
             );
 
+            String login = reader.readLine();
+            thread.login(login);
+
             while(true) {
                 String rawMessage = reader.readLine();
-                Message message = new Message(MessageType.Broadcast, rawMessage);
+                Message message = new Message(
+                        MessageType.Broadcast, rawMessage);
                 thread.send(message);
             }
 
